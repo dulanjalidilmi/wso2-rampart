@@ -747,7 +747,7 @@ public abstract class BindingBuilder {
 				} else {
                     sig.setSignatureAlgorithm(algorithmSuite.getSymmetricSignature());
 				}
-                
+                System.out.println("prepare....");
                 sig.prepare(
                         rmd.getDocument(),
                         RampartUtil.getSignatureCrypto(rpd.getRampartConfig(),
@@ -757,6 +757,7 @@ public abstract class BindingBuilder {
                 sig.addReferencesToSign(sigParts, rmd.getSecHeader());
 
                 // Do signature
+                System.out.println("computeSignature....");
                 sig.computeSignature();
 
                 if (rpd.getProtectionOrder().equals(SPConstants.ENCRYPT_BEFORE_SIGNING)
